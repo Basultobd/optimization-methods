@@ -8,6 +8,8 @@ mail : basultobd@gmail.com
 for more information about the Gradient descent 
 see https://en.wikipedia.org/wiki/Gradient_descent#Computational_examples
 
+the values converges to the minimum in [1,1]
+
 '''
 
 #gradient of the function
@@ -113,7 +115,7 @@ def main():
         gradient = evaluate_f_gradient( x_old_value, y_old_value ) 
 
         #calculates the new alpha
-        alpha = backtracking( alpha0, rho, c, old_x, -p_direction )
+        alpha = backtracking( alpha0, rho, c, old_x, -gradient )
         alpha_mul_gradient = alpha*gradient
 
         #solve the Ax = b system. A = jacobian, x = sk_vector, b = eval_h
