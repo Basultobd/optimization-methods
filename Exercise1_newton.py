@@ -69,7 +69,7 @@ def main():
 		x_old_value = old_h[0]
 		y_old_value = old_h[1]
 
-		#calculate the jacobian and evaluate
+		#evaluate in the jacobian
 		jacobian = eval_h_jacobian(x_old_value, y_old_value)
 
 		#evaluate in the h(x,y) function
@@ -78,6 +78,7 @@ def main():
 		#solve the Ax = b system. A = jacobian, x = sk_vector, b = eval_h
 		sk_vector = calculate_sk_vector(jacobian, eval_h)
 
+		#calculates the new x_k+1 point
 		new_h = old_h - sk_vector
 
 		x_new_value = new_h[0]

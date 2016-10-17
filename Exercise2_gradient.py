@@ -111,13 +111,12 @@ def main():
 
         #evaluate the x_k point in the gradient
         gradient = evaluate_f_gradient( x_old_value, y_old_value ) 
-        p_direction = -1*gradient
 
         #calculates the new alpha
-        alpha = backtracking( alpha0, rho, c, old_x, p_direction )
+        alpha = backtracking( alpha0, rho, c, old_x, -p_direction )
         alpha_mul_gradient = alpha*gradient
 
-        #calculates the new x_k+1 point
+        #solve the Ax = b system. A = jacobian, x = sk_vector, b = eval_h
         new_x = old_x - alpha_mul_gradient
 
         x_new_value = new_x[0]
